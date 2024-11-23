@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.admin-container {
+    min-height: 100vh;
+    background: linear-gradient(165deg, rgba(20, 20, 25, 0.97), rgba(10, 10, 15, 0.98));
+    padding: 1.5rem;
+    padding-top: 4rem;
+    overflow-x: hidden;
+}
+
+.admin-nav {
+    background: rgba(30, 30, 35, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    padding: 1.2rem;
+    max-width: 500px;
+    margin: 3rem auto 4rem auto;
+    position: relative;
+    top: 150px; /* Increased from 30px to 80px to move it down */
+}
+
+/* Rest of the CSS remains the same */
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.nav-link:hover {
+    color: #ff4444;
+    background: rgba(255, 68, 68, 0.1);
+}
+
+.nav-link.active {
+    color: #ff4444;
+    background: rgba(255, 68, 68, 0.1);
+}
+
+.content-wrapper {
+    margin-top: 10rem;
+    padding-bottom: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.table-container {
+    margin-top: 10rem;
+    background: rgba(30, 30, 35, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.new-button {
+    background: linear-gradient(135deg, #ff4444, #ff6b6b) !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.8rem 1.5rem !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 8px 25px rgba(255, 68, 68, 0.25) !important;
+}
+
+.new-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 30px rgba(255, 68, 68, 0.3) !important;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button, .delete-button {
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+}
+
+.edit-button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.delete-button {
+    background: rgba(255, 68, 68, 0.1) !important;
+    color: #ff4444 !important;
+    border: 1px solid rgba(255, 68, 68, 0.2) !important;
+}
+
+.edit-button:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-2px) !important;
+}
+
+.delete-button:hover {
+    background: rgba(255, 68, 68, 0.2) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Ant Design Table Overrides */
+.admin-table {
+    background: transparent !important;
+}
+
+.ant-table {
+    background: transparent !important;
+    color: white !important;
+}
+
+.ant-table-thead > tr > th {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.ant-table-tbody > tr > td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: white !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.ant-pagination-item {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.ant-pagination-item a {
+    color: white !important;
+}
+
+.ant-pagination-item-active {
+    background: #ff4444 !important;
+    border-color: #ff4444 !important;
+}
+
+/* Loading and Error States */
+.loading, .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.error {
+    color: #ff4444;
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .table-container {
+        padding: 1rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+.products-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    top: 80px;
+}
+
+.products-table-container {
+    background: rgba(30, 30, 35, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.new-product-button {
+    background: linear-gradient(135deg, #ff4444, #ff6b6b) !important;
+    color: white !important;
+    padding: 0.8rem 2rem !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    box-shadow: 0 8px 25px rgba(255, 68, 68, 0.25) !important;
+}
+
+.new-product-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 30px rgba(255, 68, 68, 0.3) !important;
+}
+
+.products-table {
+    width: 100%;
+}
+
+/* Ant Design Table Overrides */
+.products-table .ant-table {
+    background: transparent !important;
+    color: white !important;
+}
+
+.products-table .ant-table-thead > tr > th {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.products-table .ant-table-tbody > tr > td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: white !important;
+}
+
+.products-table .ant-table-tbody > tr:hover > td {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.products-table .ant-table-pagination {
+    margin-top: 2rem !important;
+}
+
+.products-table .ant-pagination-item {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.products-table .ant-pagination-item a {
+    color: white !important;
+}
+
+.products-table .ant-pagination-item-active {
+    background: #ff4444 !important;
+    border-color: #ff4444 !important;
+}

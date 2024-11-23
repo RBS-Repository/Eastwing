@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.signin-container {
+    min-height: 100vh !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(165deg, rgba(20, 20, 25, 0.97), rgba(10, 10, 15, 0.98)) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    padding: 1.5rem !important;
+}
+
+.signin-box {
+    background: linear-gradient(165deg, rgba(30, 30, 35, 0.95), rgba(15, 15, 20, 0.97)) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
+    padding: 2.5rem !important;
+    text-align: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.signin-heading {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 2rem !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.signin-alert {
+    background: rgba(255, 68, 68, 0.1) !important;
+    border: 1px solid rgba(255, 68, 68, 0.2) !important;
+    color: #ff4444 !important;
+    margin-bottom: 1.5rem !important;
+    border-radius: 12px !important;
+}
+
+.signin-label {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.signin-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    color: white !important;
+    padding: 1.2rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.signin-input:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 68, 68, 0.3) !important;
+}
+
+.signin-input:focus {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 68, 68, 0.5) !important;
+    box-shadow: 0 0 0 1px rgba(255, 68, 68, 0.2) !important;
+}
+
+.signin-button {
+    background: linear-gradient(135deg, #ff4444, #ff6b6b) !important;
+    color: white !important;
+    padding: 1.5rem !important;
+    border-radius: 16px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 8px 25px rgba(255, 68, 68, 0.25) !important;
+    margin-top: 1rem !important;
+}
+
+.signin-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 
+        0 12px 30px rgba(255, 68, 68, 0.3),
+        0 0 20px rgba(255, 68, 68, 0.2) !important;
+}
+
+.signup-text {
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin-top: 2rem !important;
+    font-size: 0.9rem !important;
+}
+
+.signup-link {
+    color: #ff4444 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.signup-link:hover {
+    color: #ff6b6b !important;
+    text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+    .signin-box {
+        padding: 2rem !important;
+    }
+
+    .signin-heading {
+        font-size: 1.8rem !important;
+    }
+
+    .signin-button {
+        padding: 1.2rem !important;
+    }
+}

@@ -1,0 +1,116 @@
+/* App.css */
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+.appBackground {
+ background-color: #121212;
+
+}
+
+
+/* Global background style for the app */
+
+/* Keyframes for sliding in from the bottom */
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px); /* Start 20px below the original position */
+    opacity: 0; /* Start fully transparent */
+  }
+  100% {
+    transform: translateY(0); /* End at the original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Card styling specific to CoffeeShopCard */
+.cardContainer {
+  background-color: #fdedda !important; /* Light cream */
+  border-radius: 24px !important; /* Stronger roundness */
+  box-shadow: 0 10px 20px rgb(0, 0, 0) !important;
+  overflow: hidden;
+  transition: transform 1.3s ease, box-shadow 0.3s ease;
+  width: 400px;
+  margin: 20px;
+  position: relative;
+  padding: 10px;
+  height: auto;
+  
+  /* Autoplay animation on page load */
+  animation: slideIn 0.5s ease-out, 0.5s infinite, fadeIn 1s ease-in-out;
+}
+
+
+.cardContainer:hover {
+  transform: translateY(-8px); /* Slight lift on hover */
+  box-shadow: 0 15px 30px rgb(255, 166, 0) !important;
+}
+
+/* Chakra Card - Ensuring border-radius is applied */
+.chakra-card {
+  border-radius: 24px !important; /* Ensuring rounded corners */
+}
+
+/* Card Image */
+.cardImage {
+  border-radius: 24px 24px 0 0 !important; /* Apply border radius to image */
+  width: 400px !important; /* Make the image take up the full width of the card */
+  height: 300px !important; /* Set a fixed height */
+  object-fit: cover; /* Ensures the image covers the space and maintains aspect ratio */
+  transition: transform 0.3s ease;
+}
+
+.cardImage:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Badge for new items */
+.badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #ffeb3b; /* Bright yellow */
+  color: white;
+  font-size: 0.85em;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  animation: pulse 1.5s infinite;
+}
+
+/* Heading styling */
+.cardHeading {
+  font-size: 1.5em !important;
+  font-weight: bold;
+  color: #5d4037; /* Coffee brown */
+  text-transform: capitalize;
+  margin-bottom: 1px !important;
+}
+
+/* Price styling */
+.cardPrice {
+  color: #6d4c41; /* Rich brown */
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: -25px 0 !important;
+  text-align: center;
+}
+
+/* Button styling */
+.cardButton {
+  background-color: #e6620a !important; /* Vibrant red */
+  color: white;
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  border-radius: 12px !important; /* Round corners for button */
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.cardButton:hover {
+  background-color: #d32f2f !important;
+}

@@ -1,0 +1,396 @@
+.map-section {
+    background: linear-gradient(165deg, rgba(30, 30, 35, 0.95), rgba(15, 15, 20, 0.97));
+    padding: 5rem 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.location-info {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 700px;
+}
+
+.location-info:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 68, 68, 0.2);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.location-heading {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin-bottom: 1.5rem !important;
+    padding-left: 0.5rem;
+}
+
+.location-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff4444, transparent);
+    border-radius: 2px;
+}
+
+.location-icon {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.9rem !important;
+    filter: drop-shadow(0 2px 4px rgba(255, 68, 68, 0.2));
+}
+
+.location-text {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.9rem !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.location-link {
+    color: #ff4444 !important;
+    font-size: 0.95rem !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.location-link:hover {
+    color: #ff6b6b !important;
+    text-decoration: underline !important;
+}
+
+.map-container {
+    width: 100%;
+    height: 700px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: contrast(1.1) saturate(1.2);
+    transition: all 0.3s ease;
+}
+
+/* Animation for map changes */
+@keyframes mapFade {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.map-frame {
+    animation: mapFade 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .location-info {
+        height: auto;
+        padding: 1rem;
+    }
+
+    .branches-list {
+        height: auto;
+        overflow-y: visible;
+        padding-right: 0;
+        margin-right: 0;
+    }
+
+    .branch-item {
+        padding: 1.2rem;
+    }
+
+    .location-heading {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .map-container {
+        height: 400px;
+        margin-top: 1rem;
+    }
+}
+
+.branch-item {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 1.4rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 100% !important;
+    height: 190px !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+}
+
+.branch-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.branch-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.branch-item.active {
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid rgba(255, 68, 68, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.branch-item.active::before {
+    background: linear-gradient(135deg, #ff4444, #ff6b6b);
+}
+
+.branch-name {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #ff4444 !important;
+    line-height: 1.3 !important;
+    padding: 0 0.25rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2px !important;
+}
+
+.branch-divider {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.branches-list {
+    overflow-y: auto;
+    height: calc(100% - 4rem);
+    padding-right: 0.5rem;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+}
+
+.branches-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.branches-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.branches-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.branches-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.map-location {
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.map-location:hover .branch-name {
+    color: #ff6b6b !important;
+    transform: translateX(5px);
+}
+
+.branch-name {
+    transition: all 0.3s ease;
+}
+
+.branch-item.active .branch-name {
+    color: #ff4444 !important;
+}
+
+.branch-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 68, 68, 0.3);
+}
+
+.branch-link {
+    width: 100%;
+    text-decoration: none !important;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.branch-link:last-child {
+    margin-bottom: 0;
+}
+
+.branch-item {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.branch-link:hover .branch-item {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.branch-item.active {
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid rgba(255, 68, 68, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.location-text {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.9rem !important;
+    transition: all 0.3s ease;
+}
+
+.branch-link:hover .location-text {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.branch-link:hover .branch-name {
+    color: #ff6b6b !important;
+}
+
+.branch-link:hover .location-icon {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Prevent email from being clickable inside the card */
+.branch-link .location-text {
+    pointer-events: none;
+}
+
+.location-row {
+    padding: 0.25rem 0.5rem !important;
+    margin: 0 !important;
+    min-height: 24px !important;
+    gap: 0.75rem !important;
+}
+
+.location-row.copyable {
+    cursor: copy;
+    position: relative;
+    border-radius: 6px;
+}
+
+.location-row.copyable:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.location-row.copyable::after {
+    content: 'Click to copy';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.location-row.copyable:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.location-row.copyable:active {
+    background: rgba(255, 68, 68, 0.2);
+}
+
+.branch-item .chakra-stack {
+    gap: 0.4rem !important;
+}
+
+@media (max-width: 768px) {
+    .location-info {
+        height: auto;
+        padding: 1rem;
+    }
+
+    .branches-list {
+        height: auto;
+        overflow-y: visible;
+        padding-right: 0;
+        margin-right: 0;
+    }
+
+    .branch-item {
+        min-height: 150px !important;
+    }
+}
+
+.branch-content {
+    height: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.location-rows-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+}
+
+.location-icon {
+    font-size: 0.75rem !important;
+    width: 12px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin: 0 !important;
+}
+
+.location-text {
+    font-size: 0.77rem !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .location-info {
+        height: auto;
+        max-height: 700px;
+    }
+
+    .branches-list {
+        gap: 12px !important;
+    }
+
+    .branch-item {
+        height: 190px !important;
+    }
+
+    .map-container {
+        height: 450px;
+    }
+}
