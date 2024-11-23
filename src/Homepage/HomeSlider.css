@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
-.ad-container{
-    
-}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -594,65 +592,96 @@ img {
 }
 
 .chicken-ads-section {
-    padding: 4rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    background-color: #121212;
-    max-width: 1400px;
-    margin: 0 auto;
+    display: block !important;
+    width: 100%;
+    padding: 2rem;
+    /* Chrome and Edge specific */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Force hardware acceleration */
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Chrome and Edge specific */
+@supports (-webkit-appearance:none) {
+    .chicken-ads-section {
+        position: relative;
+        z-index: 999;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Force visibility for specific browsers */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .chicken-ads-section {
+        display: block !important;
+        visibility: visible !important;
+    }
 }
 
 .ads-row {
     display: flex;
     justify-content: center;
+    align-items: stretch; /* Make all items same height */
     gap: 2rem;
     flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .ad-container {
-    width: 280px;
+    flex: 0 0 calc(25% - 2rem); /* Equal width, 4 items per row */
+    min-width: 250px;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     background: transparent;
-    border-radius: 0;
     overflow: hidden;
-    transition: transform 0.3s ease;
-    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover animations */
+.ad-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ad-container:hover .ad-image {
+    transform: scale(1.1);
 }
 
 .ad-image-wrapper {
     position: relative;
     width: 100%;
-    min-height: 200px;
-    display: block !important;
-    background: #f5f5f5; /* Loading placeholder */
+    height: 300px;  /* Increased height */
+    overflow: hidden;
 }
 
 .ad-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block !important;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    object-position: center;
+    transition: transform 0.5s ease;
 }
 
-.ad-image.loaded {
-    opacity: 1;
+/* Optional: Add hover effect for the content */
+.ad-content {
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-/* Force visibility on mobile */
-@media screen and (max-width: 768px) {
-    .chicken-ads-section {
-        display: block !important;
-        visibility: visible !important;
-    }
-    
-    .ad-image {
-        display: block !important;
-        visibility: visible !important;
-    }
+.ad-container:hover .ad-content {
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .discount-badge {
@@ -666,11 +695,31 @@ img {
     letter-spacing: 1px;
     background-color: #ff4444;
     color: white;
+    transition: transform 0.3s ease;
 }
 
-.ad-content {
-    padding: 1.5rem 0;
-    text-align: center;
+.ad-container:hover .discount-badge {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    .ad-container {
+        flex: 0 0 calc(33.333% - 2rem); /* 3 items per row */
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .ad-container {
+        flex: 0 0 calc(50% - 2rem); /* 2 items per row */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .ad-container {
+        flex: 0 0 100%; /* 1 item per row */
+        max-width: 320px;
+    }
 }
 
 .ad-content h3 {

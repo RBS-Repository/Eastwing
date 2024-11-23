@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -74,6 +74,16 @@ const HomeSlider = () => {
         }));
     };
 
+    useEffect(() => {
+        // Force repaint for Chrome/Edge
+        const section = document.getElementById('special-offers');
+        if (section) {
+            section.style.display = 'none';
+            section.offsetHeight; // Force reflow
+            section.style.display = 'block';
+        }
+    }, []);
+
     return (
         <div className="main-container">
             <div className="slider-container">
@@ -106,7 +116,15 @@ const HomeSlider = () => {
                 <div className="arrow-down">↓</div>
             </div>
             
-            <div className="chicken-ads-section" id="special-offers">
+            <div 
+                className="chicken-ads-section" 
+                id="special-offers"
+                style={{
+                    WebkitTransform: 'translateZ(0)',
+                    MozTransform: 'translateZ(0)',
+                    transform: 'translateZ(0)'
+                }}
+            >
                 <h2 className="section-title">Special Offers</h2>
                 <div className="ads-row">
                     <div className="ad-container">
