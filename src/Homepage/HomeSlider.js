@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -58,6 +58,22 @@ const HomeSlider = () => {
         
     ];
 
+    // Add state for image loading
+    const [imagesLoaded, setImagesLoaded] = useState({
+        wing1: false,
+        wing2: false,
+        wing3: false,
+        wing4: false
+    });
+
+    // Image loading handler
+    const handleImageLoad = (imageName) => {
+        setImagesLoaded(prev => ({
+            ...prev,
+            [imageName]: true
+        }));
+    };
+
     return (
         <div className="main-container">
             <div className="slider-container">
@@ -98,7 +114,13 @@ const HomeSlider = () => {
                             <img 
                                 src={wing1} 
                                 alt="Family Pack" 
-                                className="ad-image"
+                                className={`ad-image ${imagesLoaded.wing1 ? 'loaded' : ''}`}
+                                onLoad={() => handleImageLoad('wing1')}
+                                onError={(e) => {
+                                    console.error('Image failed to load:', e);
+                                    e.target.style.display = 'block';
+                                }}
+                                loading="eager"
                             />
                             <div className="discount-badge">SAVE 25%</div>
                         </div>
@@ -117,7 +139,13 @@ const HomeSlider = () => {
                             <img 
                                 src={wing2} 
                                 alt="Lunch Special" 
-                                className="ad-image"
+                                className={`ad-image ${imagesLoaded.wing2 ? 'loaded' : ''}`}
+                                onLoad={() => handleImageLoad('wing2')}
+                                onError={(e) => {
+                                    console.error('Image failed to load:', e);
+                                    e.target.style.display = 'block';
+                                }}
+                                loading="eager"
                             />
                             <div className="discount-badge">LUNCH DEAL</div>
                         </div>
@@ -135,7 +163,13 @@ const HomeSlider = () => {
                             <img 
                                 src={wing3} 
                                 alt="Game Day Special" 
-                                className="ad-image"
+                                className={`ad-image ${imagesLoaded.wing3 ? 'loaded' : ''}`}
+                                onLoad={() => handleImageLoad('wing3')}
+                                onError={(e) => {
+                                    console.error('Image failed to load:', e);
+                                    e.target.style.display = 'block';
+                                }}
+                                loading="eager"
                             />
                             <div className="discount-badge">GAME DAY</div>
                         </div>
@@ -154,7 +188,13 @@ const HomeSlider = () => {
                             <img 
                                 src={wing4} 
                                 alt="First Order Special" 
-                                className="ad-image"
+                                className={`ad-image ${imagesLoaded.wing4 ? 'loaded' : ''}`}
+                                onLoad={() => handleImageLoad('wing4')}
+                                onError={(e) => {
+                                    console.error('Image failed to load:', e);
+                                    e.target.style.display = 'block';
+                                }}
+                                loading="eager"
                             />
                             <div className="discount-badge">NEW CUSTOMER</div>
                         </div>
