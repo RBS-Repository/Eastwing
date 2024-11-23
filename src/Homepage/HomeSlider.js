@@ -92,7 +92,6 @@ const HomeSlider = () => {
             
             <div className="chicken-ads-section" id="special-offers">
                 <h2 className="section-title">Special Offers</h2>
-                
                 <div className="ads-row">
                     <div className="ad-container">
                         <div className="ad-image-wrapper">
