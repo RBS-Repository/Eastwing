@@ -20,7 +20,7 @@ axios.interceptors.request.use(
 
 export const fetchProductList = async ({ pageParam = 1 }) => {
   const { data } = await axios.get(
-    `${process.env.REACT_APP_BASE_ENDPOINT}/product?page=${pageParam}`
+    `${process.env.REACT_APP_BASE_ENDPOINT}/api/product?page=${pageParam}`
   );
 
   return data;
@@ -28,7 +28,7 @@ export const fetchProductList = async ({ pageParam = 1 }) => {
 
 export const fetchProduct = async (id) => {
   const { data } = await axios.get(
-    `${process.env.REACT_APP_BASE_ENDPOINT}/product/${id}`
+    `${process.env.REACT_APP_BASE_ENDPOINT}/api/product/${id}`
   );
 
   return data;
@@ -36,7 +36,7 @@ export const fetchProduct = async (id) => {
 
 export const postProduct = async (input) => {
   const { data } = await axios.post(
-    `${process.env.REACT_APP_BASE_ENDPOINT}/product/`,
+    `${process.env.REACT_APP_BASE_ENDPOINT}/api/product/`,
     input
   );
 
@@ -45,7 +45,7 @@ export const postProduct = async (input) => {
 
 export const fetcRegister = async (input) => {
   const { data } = await axios.post(
-    `${process.env.REACT_APP_BASE_ENDPOINT}/auth/register`,
+    `${process.env.REACT_APP_BASE_ENDPOINT}/api/auth/register`,
     input
   );
 
