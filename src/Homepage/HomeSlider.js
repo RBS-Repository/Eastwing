@@ -20,12 +20,21 @@ const HomeSlider = () => {
         speed: 800,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: true,
+        arrows: window.innerWidth > 768,
         autoplay: true,
         autoplaySpeed: 5000,
-  
         cssEase: 'linear',
         pauseOnHover: true,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    autoplaySpeed: 4000,
+                }
+            }
+        ]
     };
 
     const slides = [

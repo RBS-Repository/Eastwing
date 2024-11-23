@@ -257,105 +257,48 @@ img {
 /* Media Queries for Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     .slider-container {
-        height: 50vh; /* Slightly shorter on mobile */
+        height: 45vh; /* Reduced from 60vh to 45vh */
     }
 
-    h1 {
-        font-size: 2em; /* Smaller font size for mobile */
+    .slider-slide {
+        height: 45vh; /* Match container height */
     }
 
-    .slogan {
-        font-size: 1.2em;
+    .slider-image {
+        height: 100%;
+        object-fit: cover;
+        object-position: center; /* Ensure image is centered */
     }
 
-    .bottom-section {
-        padding: 20px 10px;
-        min-height: 150px;
+    /* Adjust overlay position for smaller height */
+    .overlay {
+        padding: 1rem;
+        bottom: 2rem;
     }
 
-    .animated-text {
-        font-size: 0.8em;
-        width: 100%;
-        padding: 0 10px;
-        box-sizing: border-box;
+    .slide-header h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.3rem;
     }
 
-    .order-now {
-        font-size: 2.5em !important;
-        right: 20px;
-        top: 45%;
+    .slide-header .slogan {
+        font-size: 0.9rem;
     }
 
-    .arrow-down {
-        font-size: 1.5em;
-        right: 60px;
-        top: 75%;
-    }
-
-    /* Adjust slider navigation for mobile */
-    .slick-prev,
-    .slick-next {
-        width: 35px;
-        height: 35px;
-    }
-
-    .slick-prev:after,
-    .slick-next:after {
-        font-size: 15px !important;
-    }
-
-    /* Music toggle button adjustment */
-    .music-toggle {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2em;
-        bottom: 15px;
-        right: 15px;
+    /* Adjust dots position for smaller height */
+    .slick-dots {
+        bottom: 5px;
     }
 }
 
-/* Additional adjustments for very small screens */
+/* For very small screens */
 @media screen and (max-width: 480px) {
-    h1 {
-        font-size: 1.8em;
+    .slider-container {
+        height: 40vh; /* Even smaller for phones */
     }
 
-    .slogan {
-        font-size: 1em;
-    }
-
-    .bottom-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px 5px;
-    }
-
-    .animated-text {
-        font-size: 0.7em;
-        margin-bottom: 10px;
-    }
-
-    .order-now {
-        position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
-        justify-content: center;
-        margin: 10px 0;
-        font-size: 1.3em;
-    }
-
-    .arrow-down {
-        position: relative;
-        right: auto;
-        top: auto;
-        margin-top: 5px;
-    }
-
-    /* Hide navigation arrows on very small screens */
-    .slick-prev,
-    .slick-next {
-        display: none;
+    .slider-slide {
+        height: 40vh;
     }
 }
 
@@ -846,6 +789,96 @@ img {
 .promo-code:hover {
     transform: scale(1.05);
     background-color: #ff5252;
+}
+
+/* Mobile styles (screen width less than 768px) */
+@media screen and (max-width: 768px) {
+    .slider-container {
+        height: 50vh;
+        position: relative;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;          /* Start from top */
+        bottom: 0;       /* Stretch to bottom */
+        left: 0;
+        right: 0;
+        padding: 30px 20px;
+        text-align: center;
+        /* Dark overlay across entire slider */
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.4),        /* Slightly dark at top */
+            rgba(0, 0, 0, 0.466)       /* Consistent darkness */
+        ), 
+        radial-gradient(
+            circle at center,
+            transparent 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.486) 100%  /* Darker at edges */
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;    /* Center content vertically */
+        align-items: center;        /* Center content horizontally */
+    }
+
+    .slide-header {
+        margin-bottom: 15px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .slide-header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+    }
+
+    .slide-header .slogan {
+        font-size: 1.1rem;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+    }
+}
+
+/* For very small screens */
+@media screen and (max-width: 480px) {
+    .overlay {
+        padding: 50px 15px 30px;
+    }
+
+    .slide-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .slide-header .slogan {
+        font-size: 1rem;
+    }
+}
+
+/* Landscape mode adjustments */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .slider-container {
+        height: 70vh;
+    }
+
+    .bottom-section {
+        padding: 10px 5px;
+        min-height: 100px;
+    }
+
+    .order-now {
+        font-size: 1.2em;
+    }
+
+    .arrow-down {
+        font-size: 1.2em;
+    }
 }
 
 
