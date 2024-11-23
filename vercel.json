@@ -4,5 +4,20 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
