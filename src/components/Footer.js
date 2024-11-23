@@ -1,6 +1,6 @@
 // Footer.js
 import React from 'react';
-import { Box, Container, Grid, VStack, Text, Heading, Input, Textarea, Button, HStack, Icon, Link } from '@chakra-ui/react';
+import { Box, Container, Grid, VStack, Text, Heading, Input, Textarea, Button, Icon, Link } from '@chakra-ui/react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaCoffee } from 'react-icons/fa';
 import BackToTopButton from './BackToTopButton';
 import './Footer.css';

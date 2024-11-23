@@ -1,4 +1,4 @@
-import { Box, Text, Button, Center } from "@chakra-ui/react";
+import { Box, Text, Button } from "@chakra-ui/react";
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "react-query";

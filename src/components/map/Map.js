@@ -49,7 +49,7 @@ const Map = () => {
         if (defaultBranch) {
             setMapUrl(`https://maps.google.com/maps?q=${defaultBranch.coordinates}&output=embed`);
         }
-    }, []);
+    }, [branches, selectedLocation]);
 
     const handleLocationClick = (branch) => {
         setSelectedLocation(branch.name);

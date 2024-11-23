@@ -4,7 +4,7 @@ import { Grid, Box, Flex, Button, Spinner, Text, Container } from "@chakra-ui/re
 import { useInfiniteQuery } from "react-query";
 import { fetchProductList } from "../../api.js";
 import "@fontsource/inter";
-import { Link } from 'react-router-dom';
+
 function Products() {
   const {
     data,

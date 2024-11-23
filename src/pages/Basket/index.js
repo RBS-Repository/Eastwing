@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Alert,
+  // Remove Alert,
+  // Remove AlertIcon,
+  // Remove Stack,
+  // Remove Divider,
+  // Remove Flex
   Image,
-  AlertIcon,
   Button,
   Box,
   Text,
@@ -18,17 +21,11 @@ import {
   FormLabel,
   useDisclosure,
   Textarea,
-  Stack,
-  Divider,
-  Flex,
-  IconButton,
-  useToast,
   Container,
 } from "@chakra-ui/react";
 import { useBasket } from "../../contexts/BasketContext";
 import { postOrder } from "../../api.js";
 import { FiTrash2 } from "react-icons/fi"; // For trash icon
-import { message } from "antd";
 import "./Basket.css";
 function Basket() {
   const [address, setAddress] = useState("");
